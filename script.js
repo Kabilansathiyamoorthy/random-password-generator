@@ -15,10 +15,16 @@ function generate_password(){
     password_1.textContent="";
     password_2.textContent="";
     for(let i=0;i<password_length;i++)
+        {
+            let r1=Math.floor(Math.random()*characters.length);
+            let r2=Math.floor(Math.random()*characters.length);
+            password_1.textContent+=characters[r1];
+            password_2.textContent+=characters[r2];
+        }
+    }
+function copypassword(id)
 {
-    let r1=Math.floor(Math.random()*characters.length);
-    let r2=Math.floor(Math.random()*characters.length);
-    password_1.textContent+=characters[r1];
-    password_2.textContent+=characters[r2];
-}
+    let password=document.getElementById(id).textContent;
+    navigator.clipboard.writeText(password);
+    alert("password copied");
 }
